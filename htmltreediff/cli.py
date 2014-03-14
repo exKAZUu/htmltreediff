@@ -10,7 +10,8 @@ def main(argv=None):
         html_a = file_a.read()
     with codecs.open(argv[2], 'r', 'utf-16') as file_b:
         html_b = file_b.read()
-    print diff(html_a, html_b, cutoff=0.0, pretty=True)
+    with codecs.open('output.html', 'w', 'utf-16') as file_o:
+        file_o.write(diff(html_a, html_b, cutoff=0.0, pretty=True))
 
 if __name__ == '__main__':
     main()  # pragma: no cover
